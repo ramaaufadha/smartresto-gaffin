@@ -1,3 +1,14 @@
+const DEFAULT_FOOD_IMAGE =
+  "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80";
+
+const resolveImageUrl = (value) => {
+  try {
+    return new URL(value).toString();
+  } catch {
+    return DEFAULT_FOOD_IMAGE;
+  }
+};
+
 const foods = [
   {
     id: "cappuccino",
@@ -7,8 +18,9 @@ const foods = [
     shortDescription: "Espresso with creamy foam.",
     rating: 4.8,
     price: 32000,
-    image:
-      "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=1200&q=80",
+    image: resolveImageUrl(
+      "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=1200&q=80"
+    ),
   },
   {
     id: "latte",
@@ -18,8 +30,9 @@ const foods = [
     shortDescription: "Balanced and silky latte.",
     rating: 4.7,
     price: 34000,
-    image:
-      "https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=1200&q=80",
+    image: resolveImageUrl(
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+    ),
   },
   {
     id: "espresso",
@@ -29,8 +42,9 @@ const foods = [
     shortDescription: "Strong, rich, and aromatic.",
     rating: 4.9,
     price: 25000,
-    image:
-      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80",
+    image: resolveImageUrl(
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80"
+    ),
   },
   {
     id: "iced-americano",
@@ -40,8 +54,9 @@ const foods = [
     shortDescription: "Refreshing chilled coffee.",
     rating: 4.7,
     price: 30000,
-    image:
-      "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1200&q=80",
+    image: resolveImageUrl(
+      "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1200&q=80"
+    ),
   },
   {
     id: "croissant",
@@ -51,8 +66,9 @@ const foods = [
     shortDescription: "Flaky and buttery classic.",
     rating: 4.8,
     price: 26000,
-    image:
-      "https://images.unsplash.com/photo-1555507036-ab794f4afe5a?auto=format&fit=crop&w=1200&q=80",
+    image: resolveImageUrl(
+      "https://images.unsplash.com/photo-1555507036-ab1f4038808a"
+    ),
   },
   {
     id: "cheesecake",
@@ -62,8 +78,9 @@ const foods = [
     shortDescription: "Smooth and creamy dessert.",
     rating: 4.9,
     price: 42000,
-    image:
-      "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=1200&q=80",
+    image: resolveImageUrl(
+      "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=1200&q=80"
+    ),
   },
   {
     id: "chicken-sandwich",
@@ -73,8 +90,9 @@ const foods = [
     shortDescription: "Hearty grilled chicken bite.",
     rating: 4.8,
     price: 47000,
-    image:
-      "https://images.unsplash.com/photo-1592415499556-74fcb9f18667?auto=format&fit=crop&w=1200&q=80",
+    image: resolveImageUrl(
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=80"
+    ),
   },
 ];
 
