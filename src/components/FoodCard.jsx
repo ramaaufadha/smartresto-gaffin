@@ -8,6 +8,7 @@ function FoodCard({ food, onOpen, onAdd, formatPrice }) {
   const [imageSrc, setImageSrc] = useState(food.image || FALLBACK_IMAGE);
   const [isImageLoading, setIsImageLoading] = useState(true);
   const addAnimationTimeout = useRef(null);
+  const imageElementRef = useRef(null);
 
   useEffect(() => {
     return () => {
@@ -24,7 +25,18 @@ function FoodCard({ food, onOpen, onAdd, formatPrice }) {
 
   const handleQuickAdd = (event) => {
     event.stopPropagation();
-    onAdd(food, 1);
+    const sourceRect = imageElementRef.current?.getBoundingClientRect();
+    onAdd(food, 1, {
+      sourceRect: sourceRect
+        ? {
+            top: sourceRect.top,
+            left: sourceRect.left,
+            width: sourceRect.width,
+            height: sourceRect.height,
+          }
+        : null,
+      sourceImage: imageSrc,
+    });
     setIsAdding(true);
 
     if (addAnimationTimeout.current) {
@@ -55,6 +67,7 @@ function FoodCard({ food, onOpen, onAdd, formatPrice }) {
           <div className="absolute inset-0 z-10 animate-pulse bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200" />
         )}
         <img
+          ref={imageElementRef}
           src={imageSrc}
           alt={food.name}
           onLoad={handleImageLoad}

@@ -1,4 +1,18 @@
-function Navbar({ cartCount, searchQuery, onSearchChange, onOpenCart }) {
+import { useEffect, useState } from "react";
+
+function Navbar({ cartCount, cartBounceKey, searchQuery, onSearchChange, onOpenCart }) {
+  const [isCartBouncing, setIsCartBouncing] = useState(false);
+
+  useEffect(() => {
+    if (!cartBounceKey) {
+      return undefined;
+    }
+
+    setIsCartBouncing(true);
+    const timeoutId = setTimeout(() => setIsCartBouncing(false), 300);
+    return () => clearTimeout(timeoutId);
+  }, [cartBounceKey]);
+
   return (
     <nav className="sticky top-0 z-30 border-b border-white/70 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
@@ -31,8 +45,11 @@ function Navbar({ cartCount, searchQuery, onSearchChange, onOpenCart }) {
         </div>
 
         <button
+          data-cart-icon="true"
           onClick={onOpenCart}
-          className="pressable relative shrink-0 rounded-2xl border border-slate-200 bg-white px-3 py-2 text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow"
+          className={`pressable relative shrink-0 rounded-2xl border border-slate-200 bg-white px-3 py-2 text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow ${
+            isCartBouncing ? "animate-cart-bounce" : ""
+          }`}
           aria-label="Open cart"
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">

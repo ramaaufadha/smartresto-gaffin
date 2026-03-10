@@ -21,11 +21,17 @@ function CheckoutSuccess({ order, formatPrice, onBackHome }) {
             <span>Phone</span>
             <span>{order.phoneNumber}</span>
           </div>
+          {order.tableNumber && (
+            <div className="mt-2 flex items-center justify-between text-slate-600">
+              <span>Table</span>
+              <span>{order.tableNumber}</span>
+            </div>
+          )}
           <div className="mt-2 flex items-center justify-between text-slate-600">
             <span>Total</span>
             <span className="font-semibold text-slate-900">{formatPrice(order.totalPrice)}</span>
           </div>
-          <p className="mt-3 text-xs text-slate-500">{order.deliveryAddress}</p>
+          {order.orderNotes && <p className="mt-3 text-xs text-slate-500">Notes: {order.orderNotes}</p>}
         </div>
 
         <button
