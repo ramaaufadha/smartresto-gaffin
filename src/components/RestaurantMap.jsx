@@ -1,12 +1,9 @@
 const EMBED_MAP_URL = "https://www.google.com/maps?q=-7.3316,110.5006&z=15&output=embed";
-const OPEN_MAP_URL = "https://www.google.com/maps?q=-7.3316,110.5006";
+const OPEN_MAP_URL = "https://maps.google.com/?q=-7.3316,110.5006";
 
 function RestaurantMap() {
   return (
-    <section className="mb-10 rounded-3xl bg-white p-5 shadow-lg shadow-slate-200/70 sm:p-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600">
-        Restaurant Location
-      </p>
+    <section className="rounded-3xl bg-white p-5 shadow-lg shadow-slate-200/70 sm:p-6">
       <h2 className="mt-2 text-xl font-semibold text-slate-900">Find Us on Google Maps</h2>
       <p className="mt-1 text-sm text-slate-600">Visit our restaurant location</p>
 

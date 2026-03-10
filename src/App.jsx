@@ -11,6 +11,7 @@ import CheckoutPage from "./components/CheckoutPage";
 import CheckoutSuccess from "./components/CheckoutSuccess";
 import QRMenuSection from "./components/QRMenuSection";
 import RestaurantMap from "./components/RestaurantMap";
+import RestaurantInfo from "./components/RestaurantInfo";
 import foods from "./data/foods";
 import categories from "./data/categories";
 
@@ -189,24 +190,11 @@ function App() {
               formatPrice={formatPrice}
             />
 
-            <section className="mb-10 rounded-3xl bg-white p-5 shadow-lg shadow-slate-200/70 sm:p-6">
-              <h2 className="mb-4 text-lg font-semibold text-slate-900">Restaurant Info</h2>
-              <div className="space-y-3 text-sm text-slate-600">
-                <p>
-                  <span className="font-semibold text-slate-900">Address:</span> Jl. Diponegoro
-                  No. 10, Salatiga, Central Java
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">Phone:</span> +62 857-002-49949
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">Opening Hours:</span> 08:00 -
-                  22:00 WIB
-                </p>
-              </div>
-            </section>
+            <div className="mb-10 grid gap-6 lg:grid-cols-2">
+              <RestaurantInfo />
+              <RestaurantMap />
+            </div>
 
-            <RestaurantMap />
             <QRMenuSection />
           </>
         )}
