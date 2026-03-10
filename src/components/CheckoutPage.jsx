@@ -135,7 +135,7 @@ function CheckoutPage({ items, subtotal, formatPrice, onBack, onPlaceOrder }) {
             disabled={items.length === 0}
             className="pressable w-full rounded-2xl bg-[var(--brand)] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/35 transition hover:bg-[var(--brand-dark)] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
           >
-            Place Order
+            Checkout via WhatsApp
           </button>
         </form>
 

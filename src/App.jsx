@@ -9,6 +9,7 @@ import PromoBanner from "./components/PromoBanner";
 import Footer from "./components/Footer";
 import CheckoutPage from "./components/CheckoutPage";
 import CheckoutSuccess from "./components/CheckoutSuccess";
+import QRMenuSection from "./components/QRMenuSection";
 import foods from "./data/foods";
 import categories from "./data/categories";
 
@@ -18,6 +19,28 @@ const formatPrice = (value) =>
     currency: "IDR",
     maximumFractionDigits: 0,
   }).format(value);
+
+const WHATSAPP_NUMBER = "6285700249949";
+
+const formatWhatsappRupiah = (value) => `Rp ${new Intl.NumberFormat("id-ID").format(value)}`;
+
+const buildWhatsappMessage = (items, total) => {
+  const itemLines = items
+    .map(
+      ({ food, quantity }) =>
+        `${quantity}x ${food.name} - ${formatWhatsappRupiah(food.price * quantity)}`
+    )
+    .join("\n");
+
+  return `New Order
+
+Items:
+${itemLines}
+
+Total: ${formatWhatsappRupiah(total)}
+
+Thank you.`;
+};
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -108,6 +131,10 @@ function App() {
   };
 
   const handlePlaceOrder = (orderPayload) => {
+    const message = buildWhatsappMessage(orderPayload.items, orderPayload.subtotal);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
     setLatestOrder(orderPayload);
     setCart({});
     setIsCartOpen(false);
@@ -170,7 +197,7 @@ function App() {
                     No. 18, Jakarta Selatan
                   </p>
                   <p>
-                    <span className="font-semibold text-slate-900">Phone:</span> +62 812-3456-7890
+                    <span className="font-semibold text-slate-900">Phone:</span> +62 857-002-49949
                   </p>
                   <p>
                     <span className="font-semibold text-slate-900">Opening Hours:</span> 08:00 -
@@ -185,6 +212,8 @@ function App() {
                 </div>
               </div>
             </section>
+
+            <QRMenuSection />
           </>
         )}
 
