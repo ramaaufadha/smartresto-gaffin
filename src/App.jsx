@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import CheckoutPage from "./components/CheckoutPage";
 import CheckoutSuccess from "./components/CheckoutSuccess";
 import QRMenuSection from "./components/QRMenuSection";
+import RestaurantMap from "./components/RestaurantMap";
 import foods from "./data/foods";
 import categories from "./data/categories";
 
@@ -190,29 +191,22 @@ function App() {
 
             <section className="mb-10 rounded-3xl bg-white p-5 shadow-lg shadow-slate-200/70 sm:p-6">
               <h2 className="mb-4 text-lg font-semibold text-slate-900">Restaurant Info</h2>
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="space-y-3 text-sm text-slate-600">
-                  <p>
-                    <span className="font-semibold text-slate-900">Address:</span> Jl. Kemang Raya
-                    No. 18, Jakarta Selatan
-                  </p>
-                  <p>
-                    <span className="font-semibold text-slate-900">Phone:</span> +62 857-002-49949
-                  </p>
-                  <p>
-                    <span className="font-semibold text-slate-900">Opening Hours:</span> 08:00 -
-                    22:00 WIB
-                  </p>
-                </div>
-
-                <div className="overflow-hidden rounded-2xl border border-slate-200">
-                  <div className="grid h-44 place-items-center bg-gradient-to-br from-slate-100 to-slate-200 text-sm font-semibold text-slate-500">
-                    Google Maps Placeholder
-                  </div>
-                </div>
+              <div className="space-y-3 text-sm text-slate-600">
+                <p>
+                  <span className="font-semibold text-slate-900">Address:</span> Jl. Diponegoro
+                  No. 10, Salatiga, Central Java
+                </p>
+                <p>
+                  <span className="font-semibold text-slate-900">Phone:</span> +62 857-002-49949
+                </p>
+                <p>
+                  <span className="font-semibold text-slate-900">Opening Hours:</span> 08:00 -
+                  22:00 WIB
+                </p>
               </div>
             </section>
 
+            <RestaurantMap />
             <QRMenuSection />
           </>
         )}
