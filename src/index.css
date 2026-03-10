@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #00b14f;
+  --brand-dark: #01803a;
+  --surface: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: #0f172a;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(0, 177, 79, 0.14), transparent 45%),
+    radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.13), transparent 37%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sora", sans-serif;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.pressable {
+  transition: transform 0.18s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.pressable:active {
+  transform: scale(0.95);
+}
+
+.pop-on-change {
+  animation: cartCountPop 0.34s ease;
+}
+
+.swipe-row {
+  touch-action: pan-x;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.swipe-item {
+  scroll-snap-align: start;
+}
+
+.animate-pop-in {
+  animation: popIn 0.35s ease;
+}
+
+.animate-rise-fade {
+  animation: riseFade 0.52s ease forwards;
+}
+
+@keyframes cartCountPop {
+  0% {
+    transform: scale(0.78);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.84);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes riseFade {
+  0% {
+    opacity: 0.2;
+    transform: translateY(0) scale(0.84);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.04);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-24px) scale(0.96);
+  }
+}
